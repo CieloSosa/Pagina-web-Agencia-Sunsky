@@ -52,8 +52,23 @@ function closeMobile() {
 }
 
 /* ============================
-   ANCHOR LINKS — Scroll suave sin # en la URL
+   ANCHOR LINKS — Scroll suave + URL limpia por sección
 ============================ */
+
+// Mapa de sección → URL limpia
+const sectionPaths = {
+  planes:   '/planes',
+  nosotros: '/nosotros',
+  blog:     '/blog',
+  faq:      '/faq'
+};
+
+function trackSection(path) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', { page_path: path, page_title: document.title });
+  }
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const id = link.getAttribute('href').slice(1);
@@ -62,11 +77,27 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: 'smooth' });
-    // Limpia el # de la barra de búsqueda
-    history.pushState(null, '', '/');
+    const path = sectionPaths[id] || '/';
+    history.pushState(null, '', path);
+    trackSection(path);
     closeMobile();
   });
 });
+
+// Al cargar la página desde una URL de sección (ej: agenciasunsky.com/planes)
+// scrollea hasta la sección correspondiente
+const pathOnLoad = window.location.pathname.replace('/', '');
+if (pathOnLoad && sectionPaths['/' + pathOnLoad] === undefined) {
+  // busca la sección por pathname
+  const sectionId = Object.keys(sectionPaths).find(k => sectionPaths[k] === window.location.pathname);
+  if (sectionId) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    });
+  }
+}
 
 /* ============================
    LOGO STRIP — Pausa on hover
