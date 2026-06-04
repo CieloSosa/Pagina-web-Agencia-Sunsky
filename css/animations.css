@@ -144,6 +144,29 @@
   animation: pulse 2.8s ease infinite;
 }
 
+/* ============================
+   BARRA DE PROGRESO DE SCROLL
+============================ */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--purple-dark), var(--rose), var(--purple-dark));
+  background-size: 200% 100%;
+  z-index: 9998;
+  transition: width .08s linear;
+  animation: bar-gradient 4s ease infinite;
+}
+
+/* Nav link activo mientras se scrollea */
+.nav-links a.active {
+  color: var(--purple-dark) !important;
+}
+.nav-links a.active::after {
+  width: 100% !important;
+}
+
 /* ================================================
    @KEYFRAMES
 ================================================ */
@@ -172,4 +195,10 @@
 @keyframes pulse {
   0%   { opacity: .6; transform: scale(1); }
   100% { opacity: 0;  transform: scale(1.7); }
+}
+
+@keyframes bar-gradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
