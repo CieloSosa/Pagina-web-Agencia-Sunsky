@@ -1,0 +1,175 @@
+/* ================================================
+   ANIMACIONES & MOVIMIENTO
+   Agencia Sunsky  ·  css/animations.css
+   ------------------------------------------------
+   Cursor personalizado, scroll reveals, orbs del hero,
+   pills flotantes, strip de logos, pulsaciones.
+   Todos los @keyframes están al final del archivo.
+================================================ */
+
+/* ============================
+   CURSOR PERSONALIZADO (desktop)
+============================ */
+#cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--purple-dark);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .25s ease, height .25s ease, opacity .25s ease;
+  mix-blend-mode: multiply;
+}
+
+#cursor.hovering {
+  width: 40px;
+  height: 40px;
+  background: rgba(91, 78, 158, .18);
+}
+
+/* ============================
+   SCROLL REVEAL
+============================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays escalonados */
+.d1 { transition-delay: .08s; }
+.d2 { transition-delay: .16s; }
+.d3 { transition-delay: .24s; }
+.d4 { transition-delay: .32s; }
+
+/* ============================
+   ORBS DEL HERO (fondos difusos)
+============================ */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  animation: orb-float 10s ease-in-out infinite;
+}
+
+.orb-a {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(196, 120, 154, .18), transparent 70%);
+  animation-delay: 0s;
+}
+
+.orb-b {
+  width: 380px;
+  height: 380px;
+  bottom: 60px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(123, 110, 196, .18), transparent 70%);
+  animation-delay: -4s;
+}
+
+.orb-c {
+  width: 260px;
+  height: 260px;
+  top: 42%;
+  right: 22%;
+  background: radial-gradient(circle, rgba(196, 168, 130, .22), transparent 70%);
+  animation-delay: -7s;
+}
+
+/* ============================
+   PILLS FLOTANTES (hero)
+============================ */
+.pill {
+  position: absolute;
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--dark);
+  white-space: nowrap;
+  animation: pill-float 7s ease-in-out infinite;
+}
+
+.pill-ico { font-size: 1.15rem; }
+
+.pill-top { top: -22px;   right: 18px;  animation-delay: -1s; }
+.pill-bot { bottom: -18px; left: -22px; animation-delay: -4s; }
+.pill-mid {
+  top: 50%;
+  right: -28px;
+  transform: translateY(-50%);
+  animation: pill-mid 7s ease-in-out infinite;
+  animation-delay: -2.5s;
+}
+
+/* ============================
+   LOGO STRIP (scroll infinito)
+============================ */
+.logos-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll-x 22s linear infinite;
+}
+
+.logos-half {
+  display: flex;
+  gap: 60px;
+  flex-shrink: 0;
+}
+
+/* ============================
+   WHATSAPP FLOAT (pulso)
+============================ */
+.wa-pulse {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  opacity: 0;
+  animation: pulse 2.8s ease infinite;
+}
+
+/* ================================================
+   @KEYFRAMES
+================================================ */
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0)     scale(1); }
+  33%       { transform: translate(18px, -22px) scale(1.06); }
+  66%       { transform: translate(-14px, 16px) scale(.96); }
+}
+
+@keyframes pill-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pill-mid {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50%       { transform: translateY(-50%) translateX(6px); }
+}
+
+@keyframes scroll-x {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse {
+  0%   { opacity: .6; transform: scale(1); }
+  100% { opacity: 0;  transform: scale(1.7); }
+}

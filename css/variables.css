@@ -1,0 +1,93 @@
+/* ================================================
+   VARIABLES · RESET · BASE
+   Agencia Sunsky  ·  css/variables.css
+   ------------------------------------------------
+   Editá este archivo para cambiar colores, tamaños
+   de fuente y espaciado en toda la web de una vez.
+================================================ */
+
+:root {
+  /* ---- Fondos / superficies ---- */
+  --bg:          #FDFAF6;   /* Fondo general (crema cálido)      */
+  --surface:     #FFFFFF;   /* Fondo de cards y secciones blancas */
+
+  /* ---- Paleta pastel ---- */
+  --blush:       #F5E6EA;   /* Rosa suave                        */
+  --lavender:    #EDE8F8;   /* Lavanda suave (color de marca)     */
+  --sage:        #E4EEE6;   /* Verde salvia suave                 */
+  --peach:       #FAEEE6;   /* Durazno suave                      */
+
+  /* ---- Texto ---- */
+  --dark:        #1C1025;   /* Casi negro, con tinte violeta      */
+  --mid:         #4A3966;   /* Morado medio para textos secundarios */
+  --soft:        #7B6E95;   /* Texto suave / parrafos             */
+
+  /* ---- Acento de marca ---- */
+  --purple:      #7B6EC4;   /* Morado de marca                    */
+  --purple-dark: #5B4E9E;   /* Morado oscuro (botones, CTAs)      */
+  --purple-deep: #3D2A5E;   /* Morado profundo (gradientes hero)  */
+  --rose:        #C4789A;   /* Rosa acento                        */
+  --gold:        #C4A882;   /* Dorado (estrellas, premium)        */
+
+  /* ---- Tokens de diseño ---- */
+  --border:      rgba(123, 110, 196, .12);
+  --shadow-sm:   0 4px 24px  rgba(60, 40, 100, .07);
+  --shadow-md:   0 8px 40px  rgba(60, 40, 100, .12);
+  --shadow-lg:   0 24px 60px rgba(60, 40, 100, .18);
+
+  /* ---- Border radius ---- */
+  --r:  20px;  /* Cards grandes   */
+  --rs: 12px;  /* Cards pequeñas  */
+
+  /* ---- Nav height ---- */
+  --nav: 70px;
+}
+
+/* ============================
+   RESET
+============================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+  line-height: 1.65;
+  cursor: none;
+}
+
+a   { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+p   { color: var(--soft); }
+
+/* ============================
+   TIPOGRAFÍA BASE
+============================ */
+.serif { font-family: 'Cormorant Garamond', serif; }
+
+h1 { font-size: clamp(2.8rem, 6.5vw, 5.5rem); line-height: 1.06; letter-spacing: -.03em; }
+h2 { font-size: clamp(2rem,   4vw,   3.2rem);  line-height: 1.12; letter-spacing: -.02em; }
+h3 { font-size: clamp(1.1rem, 2vw,   1.4rem);  line-height: 1.25; }
+
+/* ============================
+   UTILIDADES DE LAYOUT
+============================ */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.section   { padding: 96px 0; }
+
+/* ---- Encabezado de sección (reutilizable) ---- */
+.section-head {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 60px;
+}
+.section-head .tag { margin-bottom: 14px; }
+.section-head h2   { margin-bottom: 14px; color: var(--dark); }
+.section-head > p  { font-size: 1rem; line-height: 1.7; }

@@ -1,0 +1,454 @@
+/* ================================================
+   COMPONENTES UI REUTILIZABLES
+   Agencia Sunsky  ·  css/components.css
+   ------------------------------------------------
+   Botones, tags, badges, cards (value / plan / blog /
+   team / testimonials), FAQ items, extras box.
+   Cada grupo está separado para fácil modificación.
+================================================ */
+
+/* ============================
+   BOTONES
+============================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 100px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: none;
+  transition: all .3s cubic-bezier(.34, 1.56, .64, 1);
+  border: none;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+/* Variante: relleno morado (CTA principal) */
+.btn-primary {
+  background: var(--purple-dark);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(91, 78, 158, .35);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(91, 78, 158, .45);
+}
+
+/* Variante: contorno suave */
+.btn-ghost {
+  background: transparent;
+  color: var(--dark);
+  border: 1.5px solid var(--border);
+}
+.btn-ghost:hover {
+  background: var(--lavender);
+  border-color: var(--purple);
+}
+
+/* Variante: WhatsApp verde */
+.btn-wa {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, .28);
+}
+.btn-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, .4);
+}
+
+/* Modificador: tamaño pequeño (nav) */
+.btn-sm {
+  padding: 10px 20px;
+  font-size: .8rem;
+}
+
+/* ============================
+   TAGS / CHIPS
+============================ */
+.tag {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.tag-purple { background: var(--lavender); color: var(--purple-dark); }
+.tag-rose   { background: var(--blush);    color: #96486C; }
+.tag-sage   { background: var(--sage);     color: #3A6E39; }
+
+/* ============================
+   BADGES (métricas del hero)
+============================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.badge-green  { background: #E9F7EE; color: #2A7A49; }
+.badge-purple { background: var(--lavender); color: var(--purple-dark); }
+
+/* ============================
+   CHECK (ícono ✓ de features)
+============================ */
+.chk {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--lavender);
+  color: var(--purple-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .6rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-weight: 700;
+}
+
+/* ============================
+   VALUE CARDS (¿Por qué Sunsky?)
+============================ */
+.value-card {
+  background: var(--surface);
+  border-radius: var(--r);
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea superior de acento en hover */
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--rose));
+  opacity: 0;
+  transition: opacity .3s;
+}
+.value-card:hover            { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.value-card:hover::before    { opacity: 1; }
+
+/* Ícono de la card */
+.v-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--rs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 18px;
+}
+.v-icon.purple { background: var(--lavender); }
+.v-icon.rose   { background: var(--blush); }
+.v-icon.sage   { background: var(--sage); }
+.v-icon.peach  { background: var(--peach); }
+
+.value-card h3  { font-size: 1.05rem; font-weight: 700; margin-bottom: 9px; color: var(--dark); }
+.value-card > p { font-size: .875rem; line-height: 1.7; }
+
+/* ============================
+   PLAN CARDS (Precios)
+============================ */
+.plan-card {
+  background: var(--surface);
+  border-radius: var(--r);
+  padding: 36px 28px;
+  border: 1px solid var(--border);
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-card:not(.featured):hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Plan destacado (Medio) */
+.plan-card.featured {
+  background: linear-gradient(155deg, #3D2A5E 0%, #5B4E9E 55%, #7B6EC4 100%);
+  border-color: transparent;
+  transform: scale(1.035);
+  box-shadow: var(--shadow-lg);
+  color: #fff;
+}
+
+/* Tag "Más popular" */
+.popular-tag {
+  position: absolute;
+  top: 18px; right: 18px;
+  background: rgba(255, 255, 255, .18);
+  color: #fff;
+  padding: 3px 11px;
+  border-radius: 100px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.plan-icon { font-size: 1.9rem; margin-bottom: 14px; }
+
+.plan-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+.plan-card.featured h3 { color: #fff; }
+
+.plan-desc { font-size: .83rem; color: var(--soft); margin-bottom: 26px; line-height: 1.5; }
+.plan-card.featured .plan-desc { color: rgba(255, 255, 255, .7); }
+
+/* Bloque de precio */
+.plan-pricing {
+  margin-bottom: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--border);
+}
+.plan-card.featured .plan-pricing { border-color: rgba(255, 255, 255, .15); }
+
+.plan-ars { display: flex; align-items: baseline; gap: 3px; }
+
+.ars-sym {
+  font-size: .95rem;
+  color: var(--soft);
+  align-self: flex-start;
+  margin-top: 6px;
+  display: inline-block;
+}
+.ars-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--dark);
+}
+.plan-card.featured .ars-sym { color: rgba(255, 255, 255, .65); }
+.plan-card.featured .ars-num { color: #fff; }
+
+.plan-period { font-size: .78rem; color: var(--soft); margin-top: 4px; }
+.plan-card.featured .plan-period { color: rgba(255, 255, 255, .65); }
+
+.plan-usd { font-size: .8rem; color: var(--purple); font-weight: 600; margin-top: 3px; }
+.plan-card.featured .plan-usd { color: rgba(255, 255, 255, .85); }
+
+/* Lista de features */
+.plan-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 28px;
+}
+.plan-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: .845rem;
+  color: var(--mid);
+  line-height: 1.4;
+}
+.plan-card.featured .plan-feat  { color: rgba(255, 255, 255, .8); }
+.plan-card.featured .chk        { background: rgba(255, 255, 255, .2); color: #fff; }
+
+/* Botón CTA del plan */
+.plan-cta { width: 100%; justify-content: center; }
+.plan-card.featured .btn-primary {
+  background: #fff;
+  color: var(--purple-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
+}
+.plan-card.featured .btn-primary:hover { background: var(--lavender); }
+
+/* ============================
+   EXTRAS BOX (debajo de planes)
+============================ */
+.extras-box {
+  margin-top: 44px;
+  padding: 28px 32px;
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.extras-label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  width: 100%;
+  text-align: center;
+  margin-bottom: -10px;
+}
+
+.extra-item { font-size: .85rem; color: var(--mid); }
+.extra-item strong { color: var(--dark); }
+.extras-sep { color: var(--border); }
+
+/* ============================
+   TESTIMONIOS
+============================ */
+.stars { font-size: 1.4rem; margin-bottom: 12px; color: var(--gold); }
+
+.quote-text {
+  font-size: .9rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.quote-author { display: flex; align-items: center; gap: 10px; }
+
+.quote-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .9rem;
+}
+.qa-purple { background: var(--lavender); }
+.qa-rose   { background: var(--blush); }
+.qa-sage   { background: var(--sage); }
+
+.quote-name { font-weight: 700; font-size: .82rem; color: var(--dark); }
+.quote-sub  { font-size: .72rem; color: var(--soft); }
+
+/* ============================
+   TEAM CARDS
+============================ */
+.team-card {
+  background: var(--surface);
+  border-radius: var(--rs);
+  padding: 20px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all .35s ease;
+}
+.team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.t-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  margin: 0 auto 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+.av-purple { background: var(--lavender); }
+.av-rose   { background: var(--blush); }
+.av-sage   { background: var(--sage); }
+.av-peach  { background: var(--peach); }
+
+.t-name { font-weight: 700; font-size: .88rem; color: var(--dark); margin-bottom: 2px; }
+.t-role { font-size: .73rem; color: var(--soft); }
+
+/* ============================
+   BLOG CARDS
+============================ */
+.blog-card {
+  background: var(--surface);
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all .4s ease;
+}
+.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+.blog-thumb {
+  height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+}
+.th-1 { background: linear-gradient(135deg, var(--lavender), var(--blush)); }
+.th-2 { background: linear-gradient(135deg, var(--blush),    var(--peach)); }
+.th-3 { background: linear-gradient(135deg, var(--sage),     var(--lavender)); }
+
+.blog-body { padding: 22px; }
+
+.blog-meta {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 7px;
+}
+.blog-card h3 { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.4; }
+.blog-card p  { font-size: .82rem; line-height: 1.65; }
+
+.blog-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 14px;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+/* ============================
+   FAQ ITEMS
+============================ */
+.faq-item { border-bottom: 1px solid var(--border); }
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  cursor: none;
+  font-weight: 600;
+  font-size: .92rem;
+  color: var(--dark);
+  transition: color .2s;
+  user-select: none;
+}
+.faq-q:hover { color: var(--purple); }
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--lavender);
+  color: var(--purple-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all .3s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--purple); color: #fff; }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+  font-size: .88rem;
+  line-height: 1.75;
+  color: var(--soft);
+}
+.faq-item.open .faq-a { max-height: 280px; padding-bottom: 20px; }
