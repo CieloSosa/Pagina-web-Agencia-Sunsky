@@ -84,19 +84,22 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// Al cargar la página desde una URL de sección (ej: agenciasunsky.com/planes)
-// scrollea hasta la sección correspondiente
-const pathOnLoad = window.location.pathname.replace('/', '');
-if (pathOnLoad && sectionPaths['/' + pathOnLoad] === undefined) {
-  // busca la sección por pathname
-  const sectionId = Object.keys(sectionPaths).find(k => sectionPaths[k] === window.location.pathname);
-  if (sectionId) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
-    });
-  }
+// Si viene redirigido desde /planes, /nosotros, /faq o /blog
+// scrollea a la sección y restaura la URL limpia
+const goToSection = sessionStorage.getItem('goToSection');
+if (goToSection) {
+  sessionStorage.removeItem('goToSection');
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const target = document.getElementById(goToSection);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        const path = sectionPaths[goToSection] || '/';
+        history.replaceState(null, '', path);
+        trackSection(path);
+      }
+    }, 300);
+  });
 }
 
 /* ============================
