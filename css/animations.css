@@ -34,12 +34,16 @@
 ============================ */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .7s ease, transform .7s ease;
+  transform: translateY(36px);
+  transition: opacity .75s cubic-bezier(.22,.68,0,1.2), transform .75s cubic-bezier(.22,.68,0,1.2);
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* Delays escalonados */
