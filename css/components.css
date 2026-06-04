@@ -456,3 +456,125 @@
   color: var(--soft);
 }
 .faq-item.open .faq-a { max-height: 280px; padding-bottom: 20px; }
+
+
+/* ============================
+   SECCIÓN INDUSTRIAS
+============================ */
+.section-industries { background: var(--bg-2); }
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.industry-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px 20px;
+  text-align: center;
+  transition: border-color .25s, transform .25s;
+}
+.industry-card:hover {
+  border-color: rgba(157,143,232,.5);
+  transform: translateY(-3px);
+}
+.industry-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  display: block;
+}
+.industry-card h4 {
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.industry-card p {
+  font-size: .78rem;
+  color: var(--soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.industries-note {
+  text-align: center;
+  margin-top: 28px;
+  font-size: .88rem;
+  color: var(--soft);
+}
+
+/* ============================
+   SECCIÓN CALIFICACIÓN
+============================ */
+.section-qualify { background: var(--bg); }
+
+.qualify-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.qualify-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.qualify-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: .92rem;
+  color: var(--mid);
+  line-height: 1.55;
+}
+
+.qualify-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .72rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.qualify-check {
+  background: rgba(46,230,197,.15);
+  color: var(--teal);
+}
+.qualify-x {
+  background: rgba(255,92,138,.12);
+  color: var(--rose);
+}
+
+.qualify-cta {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.qualify-cta p {
+  font-size: .88rem;
+  color: var(--soft);
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .qualify-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
