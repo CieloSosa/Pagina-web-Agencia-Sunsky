@@ -40,11 +40,11 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(253, 250, 246, .88);
+  background: rgba(11, 9, 16, .72);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 20px rgba(60, 40, 100, .06);
+  box-shadow: 0 2px 30px rgba(0, 0, 0, .4);
 }
 
 .nav-inner {
@@ -60,7 +60,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.45rem;
   font-weight: 600;
   color: var(--dark);
@@ -102,7 +102,7 @@ nav.scrolled {
   background: var(--purple);
   transition: width .3s ease;
 }
-.nav-links a:hover          { color: var(--purple-dark); }
+.nav-links a:hover          { color: var(--purple); }
 .nav-links a:hover::after   { width: 100%; }
 
 /* Hamburger (mobile) */
@@ -128,7 +128,7 @@ nav.scrolled {
   display: none;
   position: fixed;
   top: var(--nav); left: 0; right: 0;
-  background: rgba(253, 250, 246, .97);
+  background: rgba(11, 9, 16, .96);
   backdrop-filter: blur(24px);
   padding: 20px 24px 28px;
   border-bottom: 1px solid var(--border);
@@ -164,10 +164,10 @@ nav.scrolled {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 65% 80% at 85% 10%,  rgba(237, 232, 248, .75) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 65% at  5% 85%,  rgba(245, 230, 234, .65) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 55% at 45% 55%,  rgba(228, 238, 230, .35) 0%, transparent 55%),
-    radial-gradient(ellipse 35% 45% at 70% 70%,  rgba(250, 238, 230, .5)  0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 82% 8%,   rgba(255, 92, 138, .14) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 65% at  6% 82%,   rgba(46, 230, 197, .12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 55% at 48% 60%,   rgba(157, 143, 232, .14) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 45% at 72% 72%,   rgba(255, 197, 61, .10) 0%, transparent 55%),
     var(--bg);
 }
 
@@ -198,7 +198,7 @@ nav.scrolled {
 }
 
 .hero h1    { margin-bottom: 20px; color: var(--dark); }
-.hero h1 em { font-style: italic; color: var(--purple); }
+/* El estilo de .hero h1 em (gradiente animado) está en animations.css */
 
 .hero-sub {
   font-size: 1.05rem;
@@ -218,7 +218,7 @@ nav.scrolled {
   border-top: 1px solid var(--border);
 }
 .stat-num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.4rem;
   font-weight: 600;
   line-height: 1;
@@ -230,11 +230,12 @@ nav.scrolled {
 .hero-visual { position: relative; }
 
 .hero-card {
-  background: #fff;
+  background: linear-gradient(160deg, rgba(30,24,48,.92), rgba(21,17,31,.92));
   border-radius: var(--r);
   padding: 28px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-2);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
 }
 .card-top {
   display: flex;
@@ -245,7 +246,7 @@ nav.scrolled {
 .card-avatar {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  background: var(--icon-purple);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,7 +287,7 @@ nav.scrolled {
 }
 .logos-overflow { overflow: hidden; }
 .logo-item {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--soft);
@@ -379,7 +380,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0 auto 18px;
@@ -430,7 +431,8 @@ nav.scrolled {
 .pillar-ico {
   width: 40px; height: 40px;
   border-radius: 10px;
-  background: var(--lavender);
+  background: var(--t-purple);
+  border: 1px solid rgba(157,143,232,.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -447,7 +449,8 @@ nav.scrolled {
 .location-pill {
   margin-top: 14px;
   padding: 16px 20px;
-  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  background: linear-gradient(135deg, rgba(157,143,232,.18), rgba(255,92,138,.14));
+  border: 1px solid var(--border-2);
   border-radius: var(--rs);
   display: flex;
   align-items: center;
@@ -540,9 +543,10 @@ nav.scrolled {
    13. FOOTER
 ============================ */
 footer {
-  background: var(--dark);
+  background: #08060D;
+  border-top: 1px solid var(--border);
   color: #fff;
-  padding: 56px 0 28px;
+  padding: 64px 0 28px;
 }
 
 .footer-grid {
@@ -553,7 +557,7 @@ footer {
 }
 
 .footer-logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 10px;

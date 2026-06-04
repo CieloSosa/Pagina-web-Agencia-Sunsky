@@ -84,17 +84,30 @@
   background: radial-gradient(circle, rgba(255, 217, 61, .2), transparent 70%);
   animation-delay: -7s;
 }
+.orb-d {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  width: 240px;
+  height: 240px;
+  bottom: 16%;
+  left: 28%;
+  background: radial-gradient(circle, rgba(124, 138, 255, .16), transparent 70%);
+  animation: orb-float 12s ease-in-out infinite;
+  animation-delay: -2s;
+}
 
 /* ============================
    PILLS FLOTANTES (hero)
 ============================ */
 .pill {
   position: absolute;
-  background: #fff;
+  background: rgba(30, 24, 48, .85);
   border-radius: var(--rs);
   padding: 10px 14px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-2);
   box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   gap: 9px;
@@ -145,6 +158,54 @@
 }
 
 /* ============================
+   TEXTO CON MOVIMIENTO
+   Gradiente animado que fluye sobre
+   palabras destacadas (hero <em>, .gradient-text)
+============================ */
+.gradient-text,
+.hero h1 em,
+.cta-final h2 em {
+  font-style: normal;
+  background: linear-gradient(110deg, #FF5C8A, #FFC53D, #2EE6C5, #9D8FE8, #FF5C8A);
+  background-size: 280% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: text-flow 6s linear infinite;
+}
+
+/* Aparición de títulos: letras/líneas que suben con desenfoque */
+.title-rise {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(8px);
+  transition: opacity .9s cubic-bezier(.2,.8,.2,1),
+              transform .9s cubic-bezier(.2,.8,.2,1),
+              filter .9s ease;
+}
+.title-rise.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Brillo que cruza un elemento (cards destacadas) */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%;
+  width: 80%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.12), transparent);
+  transform: skewX(-18deg);
+  animation: shine-sweep 5s ease-in-out infinite;
+}
+
+/* ============================
    BARRA DE PROGRESO DE SCROLL
 ============================ */
 .scroll-progress-bar {
@@ -161,7 +222,7 @@
 
 /* Nav link activo mientras se scrollea */
 .nav-links a.active {
-  color: var(--purple-dark) !important;
+  color: var(--purple) !important;
 }
 .nav-links a.active::after {
   width: 100% !important;
@@ -201,4 +262,19 @@
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes text-flow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 280% center; }
+}
+
+@keyframes shine-sweep {
+  0%, 100% { left: -120%; }
+  45%, 55% { left: 140%; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 24px 70px rgba(0,0,0,.55), 0 0 0 rgba(157,143,232,0); }
+  50%      { box-shadow: 0 24px 70px rgba(0,0,0,.55), 0 0 50px rgba(157,143,232,.35); }
 }

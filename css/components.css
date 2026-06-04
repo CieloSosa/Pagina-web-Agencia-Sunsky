@@ -16,7 +16,7 @@
   gap: 8px;
   padding: 13px 26px;
   border-radius: 100px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: .875rem;
   font-weight: 600;
   cursor: none;
@@ -44,7 +44,7 @@
   border: 1.5px solid var(--border);
 }
 .btn-ghost:hover {
-  background: var(--lavender);
+  background: var(--t-purple);
   border-color: var(--purple);
 }
 
@@ -78,9 +78,9 @@
   text-transform: uppercase;
 }
 
-.tag-purple { background: var(--lavender); color: var(--purple-dark); }
-.tag-rose   { background: var(--blush);    color: #96486C; }
-.tag-sage   { background: var(--sage);     color: #3A6E39; }
+.tag-purple { background: var(--t-purple); color: var(--purple); border: 1px solid rgba(157,143,232,.25); }
+.tag-rose   { background: var(--t-rose);   color: var(--rose);   border: 1px solid rgba(255,92,138,.25); }
+.tag-sage   { background: var(--t-teal);   color: var(--teal);   border: 1px solid rgba(46,230,197,.25); }
 
 /* ============================
    BADGES (métricas del hero)
@@ -95,8 +95,8 @@
   font-weight: 700;
 }
 
-.badge-green  { background: #E9F7EE; color: #2A7A49; }
-.badge-purple { background: var(--lavender); color: var(--purple-dark); }
+.badge-green  { background: rgba(61,255,168,.14); color: var(--mint); }
+.badge-purple { background: var(--t-purple); color: var(--purple); }
 
 /* ============================
    CHECK (ícono ✓ de features)
@@ -105,8 +105,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--lavender);
-  color: var(--purple-dark);
+  background: var(--t-teal);
+  color: var(--teal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +139,7 @@
   opacity: 0;
   transition: opacity .3s;
 }
-.value-card:hover            { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.value-card:hover            { transform: translateY(-5px); box-shadow: var(--shadow-md); background: var(--surface-2); border-color: var(--border-2); }
 .value-card:hover::before    { opacity: 1; }
 
 /* Ícono de la card */
@@ -179,6 +179,8 @@
 .plan-card:not(.featured):hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+  background: var(--surface-2);
+  border-color: var(--border-2);
 }
 
 /* Plan destacado (Medio) */
@@ -186,8 +188,8 @@
   background: linear-gradient(155deg, #3D2A5E 0%, #5B4E9E 55%, #7B6EC4 100%);
   border-color: transparent;
   transform: scale(1.035);
-  box-shadow: var(--shadow-lg);
   color: #fff;
+  animation: glow-pulse 4.5s ease-in-out infinite;
 }
 
 /* Tag "Más popular" */
@@ -230,7 +232,7 @@
   display: inline-block;
 }
 .ars-num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 3.2rem;
   font-weight: 600;
   line-height: 1;
@@ -271,7 +273,7 @@
   color: var(--purple-dark);
   box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
 }
-.plan-card.featured .btn-primary:hover { background: var(--lavender); }
+.plan-card.featured .btn-primary:hover { background: #EDE8FF; }
 
 /* ============================
    EXTRAS BOX (debajo de planes)
@@ -327,9 +329,9 @@
   justify-content: center;
   font-size: .9rem;
 }
-.qa-purple { background: var(--lavender); }
-.qa-rose   { background: var(--blush); }
-.qa-sage   { background: var(--sage); }
+.qa-purple { background: var(--icon-purple); }
+.qa-rose   { background: var(--icon-rose); }
+.qa-sage   { background: var(--icon-sage); }
 
 .quote-name { font-weight: 700; font-size: .82rem; color: var(--dark); }
 .quote-sub  { font-size: .72rem; color: var(--soft); }
@@ -345,7 +347,7 @@
   text-align: center;
   transition: all .35s ease;
 }
-.team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); background: var(--surface-2); border-color: var(--border-2); }
 
 .t-avatar {
   width: 62px;
@@ -357,10 +359,10 @@
   justify-content: center;
   font-size: 1.4rem;
 }
-.av-purple { background: var(--lavender); }
-.av-rose   { background: var(--blush); }
-.av-sage   { background: var(--sage); }
-.av-peach  { background: var(--peach); }
+.av-purple { background: var(--icon-purple); }
+.av-rose   { background: var(--icon-rose); }
+.av-sage   { background: var(--icon-teal); }
+.av-peach  { background: var(--icon-peach); }
 
 .t-name { font-weight: 700; font-size: .88rem; color: var(--dark); margin-bottom: 2px; }
 .t-role { font-size: .73rem; color: var(--soft); }
@@ -375,7 +377,7 @@
   border: 1px solid var(--border);
   transition: all .4s ease;
 }
-.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--border-2); }
 
 .blog-thumb {
   height: 175px;
@@ -384,9 +386,9 @@
   justify-content: center;
   font-size: 2.8rem;
 }
-.th-1 { background: linear-gradient(135deg, var(--lavender), var(--blush)); }
-.th-2 { background: linear-gradient(135deg, var(--blush),    var(--peach)); }
-.th-3 { background: linear-gradient(135deg, var(--sage),     var(--lavender)); }
+.th-1 { background: linear-gradient(135deg, #9D8FE8, #FF5C8A); }
+.th-2 { background: linear-gradient(135deg, #FF5C8A, #FFC53D); }
+.th-3 { background: linear-gradient(135deg, #2EE6C5, #7C8AFF); }
 
 .blog-body { padding: 22px; }
 
@@ -434,8 +436,8 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--lavender);
-  color: var(--purple-dark);
+  background: var(--t-purple);
+  color: var(--purple);
   display: flex;
   align-items: center;
   justify-content: center;
