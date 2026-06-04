@@ -40,7 +40,7 @@
   --rs: 12px;  /* Cards pequeñas  */
 
   /* ---- Nav height ---- */
-  --nav: 70px;
+  --nav: 86px;
 }
 
 /* ============================
@@ -79,7 +79,7 @@ h3 { font-size: clamp(1.1rem, 2vw,   1.4rem);  line-height: 1.25; }
 /* ============================
    UTILIDADES DE LAYOUT
 ============================ */
-.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 56px; }
 .section   { padding: 96px 0; }
 
 /* ---- Encabezado de sección (reutilizable) ---- */
