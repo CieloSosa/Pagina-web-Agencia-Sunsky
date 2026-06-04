@@ -1,0 +1,302 @@
+/* ================================================
+   ESTILOS DE PÁGINA DE SERVICIOS
+   Agencia Sunsky  ·  css/servicios.css
+   ------------------------------------------------
+   Estilos específicos de servicios.html.
+   No afecta al resto de la web.
+================================================ */
+
+/* ============================
+   HERO DE SERVICIOS
+============================ */
+.servicios-hero {
+  padding: calc(var(--nav) + 80px) 0 80px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.servicios-hero-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 70% at 90% 10%, rgba(255, 92, 138, .12) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 5%  90%, rgba(46, 230, 197, .10) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 50% at 50% 50%, rgba(157,143,232, .10) 0%, transparent 55%),
+    var(--bg);
+}
+
+.servicios-hero .container { position: relative; z-index: 2; }
+
+.servicios-hero-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--soft);
+  margin-bottom: 32px;
+  transition: color .2s;
+}
+.servicios-hero-back:hover { color: var(--purple); }
+
+.servicios-hero h1 { margin-bottom: 20px; }
+.servicios-hero h1 span { color: var(--soft); font-weight: 400; }
+
+.servicios-hero p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+
+.servicios-hero-stats {
+  display: flex;
+  gap: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+}
+
+/* ============================
+   NAV STICKY DE SERVICIOS
+   Barra horizontal que resalta
+   el servicio visible
+============================ */
+.servicios-nav {
+  position: sticky;
+  top: var(--nav);
+  z-index: 100;
+  background: rgba(11, 9, 16, .85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.servicios-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.servicios-nav-inner::-webkit-scrollbar { display: none; }
+
+.s-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 16px 22px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--soft);
+  white-space: nowrap;
+  transition: color .25s;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  letter-spacing: .02em;
+}
+.s-nav-link:hover { color: var(--dark); }
+.s-nav-link.active {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+}
+
+/* ============================
+   SECCIÓN INDIVIDUAL DE SERVICIO
+============================ */
+.servicio-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.servicio-section:last-of-type { border-bottom: none; }
+
+/* Número grande decorativo */
+.servicio-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, .06);
+  position: absolute;
+  top: 60px;
+  right: 56px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Grid principal: izq | der */
+.servicio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.servicio-grid.reverse { direction: rtl; }
+.servicio-grid.reverse > * { direction: ltr; }
+
+/* Columna izquierda (visual) */
+.servicio-visual {
+  position: sticky;
+  top: calc(var(--nav) + 60px);
+}
+
+.servicio-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 28px;
+}
+
+.icon-cm     { background: linear-gradient(135deg, #9D8FE8, #6D5DD3); }
+.icon-meta   { background: linear-gradient(135deg, #FF5C8A, #C8355F); }
+.icon-google { background: linear-gradient(135deg, #FFC53D, #FF9F1C); }
+.icon-design { background: linear-gradient(135deg, #2EE6C5, #1099A0); }
+.icon-email  { background: linear-gradient(135deg, #7C8AFF, #4A5CC9); }
+.icon-web    { background: linear-gradient(135deg, #FF6B6B, #CC3D3D); }
+.icon-data   { background: linear-gradient(135deg, #3DFFA8, #1A9E6A); }
+.icon-ia     { background: linear-gradient(135deg, #FFD93D, #C47F19); }
+
+/* Caja de "¿Qué vas a lograr?" */
+.servicio-resultado {
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-radius: var(--rs);
+  border-left: 3px solid var(--purple);
+  background: rgba(157, 143, 232, .08);
+}
+
+.servicio-resultado .sr-label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+
+.servicio-resultado p {
+  font-size: .9rem;
+  line-height: 1.65;
+  color: var(--mid);
+}
+
+/* Tag "próximamente" */
+.soon-tag {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 100px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--t-gold);
+  color: var(--gold);
+  border: 1px solid rgba(255, 197, 61, .25);
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Columna derecha (contenido) */
+.servicio-content {}
+
+.servicio-tag { margin-bottom: 16px; }
+
+.servicio-content h2 {
+  margin-bottom: 18px;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+
+.servicio-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+/* Lista de lo que incluye */
+.servicio-incluye {
+  margin-bottom: 32px;
+}
+
+.servicio-incluye h4 {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+
+.incluye-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.incluye-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .9rem;
+  color: var(--mid);
+  line-height: 1.4;
+}
+
+.incluye-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* Precio si aplica */
+.servicio-precio {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--rs);
+  margin-bottom: 28px;
+  font-size: .85rem;
+  color: var(--mid);
+}
+.servicio-precio strong { color: var(--gold); font-size: 1rem; }
+
+/* ============================
+   SECCIÓN CTA FINAL SERVICIOS
+============================ */
+.servicios-cta {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(160deg, var(--bg-2) 0%, var(--surface) 100%);
+  border-top: 1px solid var(--border);
+}
+.servicios-cta h2 { margin-bottom: 16px; }
+.servicios-cta p  { font-size: 1.05rem; margin-bottom: 36px; }
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 1024px) {
+  .servicio-grid { grid-template-columns: 1fr; gap: 40px; }
+  .servicio-grid.reverse { direction: ltr; }
+  .servicio-visual { position: static; }
+  .servicio-num { font-size: 5rem; top: 20px; right: 24px; }
+}
+
+@media (max-width: 768px) {
+  .servicios-hero { padding: calc(var(--nav) + 48px) 0 56px; }
+  .servicio-section { padding: 72px 0; }
+  .servicios-hero-stats { flex-wrap: wrap; gap: 20px; }
+}
