@@ -52,6 +52,23 @@ function closeMobile() {
 }
 
 /* ============================
+   ANCHOR LINKS — Scroll suave sin # en la URL
+============================ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const id = link.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth' });
+    // Limpia el # de la barra de búsqueda
+    history.pushState(null, '', '/');
+    closeMobile();
+  });
+});
+
+/* ============================
    LOGO STRIP — Pausa on hover
 ============================ */
 const logosTrack = document.querySelector('.logos-track');
