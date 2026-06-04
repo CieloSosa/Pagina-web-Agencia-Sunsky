@@ -374,7 +374,6 @@ nav.scrolled {
 .step-num {
   width: 54px; height: 54px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--lavender), var(--blush));
   border: 2.5px solid #fff;
   box-shadow: 0 0 0 4px var(--border);
   display: flex;
@@ -383,9 +382,13 @@ nav.scrolled {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--purple-dark);
   margin: 0 auto 18px;
+  color: #fff;
 }
+.step:nth-child(1) .step-num { background: linear-gradient(135deg, #7B6EC4, #5B4E9E); }
+.step:nth-child(2) .step-num { background: linear-gradient(135deg, #2EC4B6, #0E9E92); }
+.step:nth-child(3) .step-num { background: linear-gradient(135deg, #E8608A, #C44570); }
+.step:nth-child(4) .step-num { background: linear-gradient(135deg, #F0A500, #D4890A); }
 .step h3 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
 .step p  { font-size: .83rem; line-height: 1.6; }
 

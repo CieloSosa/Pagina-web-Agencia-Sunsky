@@ -153,10 +153,12 @@
   font-size: 1.35rem;
   margin-bottom: 18px;
 }
-.v-icon.purple { background: var(--lavender); }
-.v-icon.rose   { background: var(--blush); }
-.v-icon.sage   { background: var(--sage); }
-.v-icon.peach  { background: var(--peach); }
+.v-icon.purple { background: var(--icon-purple); }
+.v-icon.rose   { background: var(--icon-rose); }
+.v-icon.sage   { background: var(--icon-sage); }
+.v-icon.peach  { background: var(--icon-peach); }
+.v-icon.teal   { background: var(--icon-teal); }
+.v-icon.coral  { background: var(--icon-coral); }
 
 .value-card h3  { font-size: 1.05rem; font-weight: 700; margin-bottom: 9px; color: var(--dark); }
 .value-card > p { font-size: .875rem; line-height: 1.7; }

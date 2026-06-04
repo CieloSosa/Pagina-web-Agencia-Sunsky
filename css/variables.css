@@ -26,8 +26,23 @@
   --purple:      #7B6EC4;   /* Morado de marca                    */
   --purple-dark: #5B4E9E;   /* Morado oscuro (botones, CTAs)      */
   --purple-deep: #3D2A5E;   /* Morado profundo (gradientes hero)  */
-  --rose:        #C4789A;   /* Rosa acento                        */
-  --gold:        #C4A882;   /* Dorado (estrellas, premium)        */
+  --rose:        #E8608A;   /* Rosa vibrante                      */
+  --gold:        #F0A500;   /* Dorado (estrellas, premium)        */
+
+  /* ---- Colores de acento extra (para más variedad) ---- */
+  --coral:       #FF6B6B;   /* Coral / rojo suave                 */
+  --teal:        #2EC4B6;   /* Verde azulado                      */
+  --yellow:      #FFD93D;   /* Amarillo dorado                    */
+  --indigo:      #5C6BC0;   /* Índigo azul                        */
+  --mint:        #06D6A0;   /* Verde menta                        */
+
+  /* ---- Fondos de iconos (más coloridos) ---- */
+  --icon-purple: linear-gradient(135deg, #EDE8F8, #C4B5FD);
+  --icon-rose:   linear-gradient(135deg, #FFE4EF, #F9A8C9);
+  --icon-sage:   linear-gradient(135deg, #D1FAE5, #6EE7B7);
+  --icon-peach:  linear-gradient(135deg, #FEF3C7, #FCD34D);
+  --icon-teal:   linear-gradient(135deg, #CCFBF1, #5EEAD4);
+  --icon-coral:  linear-gradient(135deg, #FFE4E6, #FCA5A5);
 
   /* ---- Tokens de diseño ---- */
   --border:      rgba(123, 110, 196, .12);
