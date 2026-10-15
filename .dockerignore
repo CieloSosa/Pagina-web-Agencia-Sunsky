@@ -1,0 +1,7 @@
+.git
+.gitignore
+.DS_Store
+**/.DS_Store
+Dockerfile
+DEPLOY.md
+*.md
